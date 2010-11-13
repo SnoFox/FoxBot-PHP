@@ -1,0 +1,4 @@
+# Ignore vim temporary files
+*.swp
+# Ignore my local test directory
+test/
