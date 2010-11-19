@@ -1,0 +1,3 @@
+* Add more IRC parsing
+* Make it not freak when disconnected from IRC (CPU usage skyrockets...)
+* Add hooks system to actually make this a library!
