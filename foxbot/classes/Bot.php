@@ -11,7 +11,7 @@ class Bot {
     protected $ssl; // Using SSL or no
     protected $vHost; // Host we bound to
     protected $host; // Bot's host on IRC (maybe!)
-    protected $identd; // Bots identd on IRC (maybe!)
+    protected $ident; // Bots identd on IRC (maybe!)
 
     public static function start( $nick, $ident, $gecos, $server, $port = 6667, $ssl = 0, $host = NULL ) {
         if( $ssl == 0 ) {
@@ -63,6 +63,7 @@ class Bot {
             $null = NULL; // because I can :D
             $activeSockets = stream_select( $sockets, $null, $null, NULL );
 
+
             if( $activeSockets === 0 ) {
                 continue;
             }
@@ -76,7 +77,7 @@ class Bot {
                         $currentBot = $handlerKey;
                     } // If this socket = current socket
                 } // foreach bothandler...
-                if( $currentBot == NULL )
+                if( $currentBot === NULL )
                     throw new Exception( 'Read from a socket I don\'t know about... Wtf?' );
                 $currentBot = $botHandlers[$currentBot];
 
