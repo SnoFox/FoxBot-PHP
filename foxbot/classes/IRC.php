@@ -191,5 +191,20 @@ class IRC {
         logit( 'IRC:Out: ' . $string );
         fwrite( $botSocket, $string . "\r\n" );
     }
+
+    static function splitSrc( $string ) {
+        $tmpSrc = explode( '!', $string );
+        $return['nick'] = $tmpSrc[0];
+        if( isset($tmpSrc[1]) ) {
+            $tmpSrc = explode( '@', $tmpSrc[1] );
+            $return['ident'] = $tmpSrc[0];
+            $return['host'] = $tmpSrc[1];
+        } else {
+            $return['ident'] = NULL;
+            $return['host'] = NULL;
+        }
+
+        return $return;
+    }
 } // class IRC
 ?>

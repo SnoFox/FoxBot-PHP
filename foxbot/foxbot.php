@@ -11,3 +11,5 @@ function logit( $message, $type = NULL ) {
 
 include 'foxbot/classes/IRC.php';
 include 'foxbot/classes/Bot.php';
+include 'foxbot/classes/Event.php';
+include 'foxbot/classes/Module
